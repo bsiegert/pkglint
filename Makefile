@@ -40,7 +40,7 @@ SUBST_SED.pkglint+=	-e s\|@DISTVER@\|${DISTNAME:S/pkglint-//}\|g
 SUBST_SED.pkglint+=	-e s\|@MAKE@\|${MAKE:Q}\|g
 SUBST_SED.pkglint+=	-e s\|@PERL@\|${PERL5:Q}\|g
 SUBST_SED.pkglint+=	-e s\|@DATADIR@\|${PREFIX}/share/pkglint\|g
-#SUBST_SED.pkglint+=	-e s\|@DATADIR@\|/usr/pkgsrc/pkgtools/pkglint/files\|g
+#SUBST_SED.pkglint+=	-e s\|@DATADIR@\|${PKGSRCDIR}/pkgtools/pkglint/files\|g
 
 # Note: This target is only intended for use by the pkglint author.
 .PHONY: quick-install
