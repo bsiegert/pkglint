@@ -45,7 +45,7 @@ use PkgLint::SubstContext;
 use PkgLint::CVS_Entry;
 use PkgLint::Change;
 
-package main;
+package pkglint;
 #==========================================================================
 # This package contains the application-specific code of pkglint.
 # Most subroutines in this package follow a strict naming convention:
