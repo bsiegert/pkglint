@@ -23,6 +23,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 WRKSRC=		${WRKDIR}
 NO_CHECKSUM=	yes
 USE_LANGUAGES=	# none
+USE_TOOLS+=	perl
 AUTO_MKDIRS=	yes
 
 .include "../../mk/bsd.prefs.mk"
@@ -39,8 +40,12 @@ SUBST_SED.pkglint+=	-e s\|@PREFIX@\|${PREFIX}\|g
 SUBST_SED.pkglint+=	-e s\|@DISTVER@\|${DISTNAME:S/pkglint-//}\|g
 SUBST_SED.pkglint+=	-e s\|@MAKE@\|${MAKE:Q}\|g
 SUBST_SED.pkglint+=	-e s\|@PERL@\|${PERL5:Q}\|g
-SUBST_SED.pkglint+=	-e s\|@DATADIR@\|${PREFIX}/share/pkglint\|g
-#SUBST_SED.pkglint+=	-e s\|@DATADIR@\|${PKGSRCDIR}/pkgtools/pkglint/files\|g
+SUBST_SED.pkglint+=	-e s\|@DATADIR@\|${FILESDIR}\|g
+
+SUBST_CLASSES+=		mappaths
+SUBST_STAGE.mappaths=	pre-install
+SUBST_FILES.mappaths+=	pkglint.pl
+SUBST_SED.mappaths+=	-e s\|${FILESDIR}\|${PREFIX}/share/pkglint\|g
 
 # Note: This target is only intended for use by the pkglint author.
 .PHONY: quick-install
