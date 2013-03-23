@@ -65,7 +65,7 @@ do-build:
 		&& mv pkglint.pl.inlined pkglint.pl
 
 do-test:
-	cd ${WRKSRC} && prove pkglint.t
+	cd ${WRKSRC} && prove ${PROVE_ARGS} pkglint.t
 
 do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/pkglint.pl ${DESTDIR}${PREFIX}/bin/pkglint
