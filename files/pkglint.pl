@@ -649,10 +649,7 @@ sub get_vartypes_basictypes() {
 	my $types = {};
 	assert($lines, "Couldn't load pkglint.pl from $program");
 	foreach my $line (@$lines) {
-		if ($line->text =~ m"^\s+\} elsif \(\$type eq \"(\w+)\"\) \{$") {
-			# still finds "ARRAY" -- probably unintentional!
-			$types->{$1} = 1;
-		} elsif ($line->text =~ m"^\s+(\w+) => sub \{$") {
+		if ($line->text =~ m"^\s+(\w+) => sub \{$") {
 			# XXX lookup in %type_dispatch instead
 			$types->{$1} = 1;
 		}

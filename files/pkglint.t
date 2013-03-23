@@ -71,7 +71,7 @@ sub test_get_vartypes_basictypes {
 	my %types = %{$results[0]};
 
 	my @all_vartypes_basictypes = qw(
-		ARRAY AwkCommand BrokenIn
+		AwkCommand BrokenIn
 		BuildlinkDepmethod BuildlinkDepth BuildlinkPackages
 		CFlag Category Comment
 		Dependency DependencyWithPath
